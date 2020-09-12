@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import socket from "./socket";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
