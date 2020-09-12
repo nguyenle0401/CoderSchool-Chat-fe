@@ -1,38 +1,731 @@
-.App {
-  text-align: center;
+.room {
+  flex-direction: column;
+  justify-content: space-around;
+}
+.chat-room {
+  color: black !important;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chat-mess {
+  /* border: 1px solid red; */
+  border-radius: 25px;
+  display: flex;
+  /* position: absolute; */
+  flex-direction: column-reverse;
+  justify-content: right;
+  width: 95%;
+  padding-left: 50px;
+  height: 600px;
+  background-color: antiquewhite;
+  overflow: scroll;
+}
+.chat {
+  border-radius: 25px;
+  justify-content: right;
+  width: 100%;
+  padding-top: 300x;
+}
+.red {
+  color: red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.black {
+  color: black;
+}
+
+.divider {
+  margin: 20px 0 20px 0;
+}
+
+.bold {
+  color: #fffffe;
+}
+
+.send-msg {
+  background-color: rgb(9, 255, 0);
+  border: 1px solid black;
+  border-radius: 50px;
+  font-weight: bolder;
+  margin-top: 20px;
+}
+.msg {
+  border: 1px solid black;
+  border-radius: 50px;
+  width: 300px;
+  height: 40px;
+}
+body {
+  font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+  /* background-color: #0f080f !important; */
+  /* background: linear-gradient(-45deg, #c3e7f8, #fac8eb, #b7eeee, #f5c8c8);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite; */
+  /* NguyenLe */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (min-width: 1200px) {
+  body .container {
+    max-width: 100%;
+  }
+}
+
+/* extra large devices */
+
+@media screen and (min-width: 1800px) {
+  body .container {
+    max-width: 70%;
+  }
+}
+
+.container .row .col-3 {
+  max-width: 230px;
+}
+
+/*  SIDE BAR */
+
+/* #outerMenuContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+} */
+/* 
+#outerMenuContainer:hover {
+  color: #1df24b !important;
+  background: #cff6d7;
+  border-radius: 30px;
+  text-decoration: none;
+  opacity: 0.7;
+} */
+
+/* #outerMenuContainer:hover a {
+  color: #f0ede6 !important;
+  color: #1DA1F2 !important;
+} */
+
+#outerMenuContainer a {
+  text-decoration: none;
+  color: black;
+}
+
+/* TREDDINGS + WHO TO FOLLOW */
+
+#leftNav {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  font-weight: 800;
+  background-color: white;
+}
+
+#rightNav {
+  min-width: 380px;
+  background-color: white;
+}
+
+#rightNav .input-group-prepend {
+  background-color: white !important;
+  color: white !important;
+}
+
+#search {
+  border-radius: 30px;
+  height: 10px;
+  padding: 20px;
+  position: relative;
+  width: 349px;
+  background-color: #e6ecf0;
+}
+
+#trendings {
+  min-width: 380px;
+}
+
+#trendings .list-group-item {
+  /* background-color: #be79f7ee; */
+  background-color: rgb(217, 231, 233);
+  background: linear-gradient(#e4f3f7 -60%, #fdfaf1 140%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(-60%, #cee4ee),
+    color-stop(140%, #e9f3f3)
+  );
+}
+
+#trendings .content {
+  cursor: pointer;
+}
+
+#trendings .trends-header {
+  font-weight: 800;
+  font-size: larger;
+}
+
+#trendings .content:hover {
+  filter: brightness(97%);
+}
+
+#trendings ul li .hashtag {
+  font-weight: 700;
+}
+
+#moreToFollowImg {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.fa-badge-check {
+  color: rgba(29, 161, 242, 1);
+}
+
+.followBtn {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 25px;
+  color: #020202;
+  font-family: Arial;
+  font-size: 17px;
+  font-weight: 200;
+  padding: 3px;
+  background-color: #fffffe;
+  border: solid #fc9105 1px;
+  text-decoration: none;
+  /* display: inline-block; */
+  cursor: pointer;
+  text-align: center;
+}
+
+/* .name-app {
+  font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 3px;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  border-radius: 50px;
+  background-image: url("https://phunugioi.com/wp-content/uploads/2020/02/anh-tho-cute-dang-yeu.jpg");
+} */
+.name-app {
+  font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  padding-top: 80px;
+  background-image: url("https://phunugioi.com/wp-content/uploads/2020/02/anh-tho-cute-dang-yeu.jpg");
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 80px;
+  background-size: 80px;
+  border: 1px solid white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
+.followBtn:hover {
+  color: #f2b91d;
+  background: #cfe7f6;
+  border-radius: 25px;
+  text-decoration: none;
+  opacity: 0.7;
+}
+.welcom {
+  display: flex;
+  position: absolute;
+
+  justify-content: center;
+  align-items: center !important;
+}
+
+#whoToFollow {
+  min-width: 300px;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+#whoToFollow .list-group-item {
+  background-color: rgb(252, 252, 252);
+}
+
+#whoToFollow .content {
+  cursor: pointer;
+}
+
+#whoToFollow .content:hover {
+  filter: brightness(97%);
+}
+
+#whoToFollow .row .col-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#whoToFollow .row .col-6 .hashtag {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#whoToFollow .row .col-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#whoToFollow .whoToFollow-header {
+  font-weight: 800;
+  font-size: larger;
+}
+
+h6 {
+  font-weight: 700;
+}
+
+#content .functionBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#contentArea #content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetArea[placeholder]:empty::before,
+.tweetArea-modal[placeholder]:empty::before {
+  content: attr(placeholder);
+  color: gray;
+  opacity: 0.7;
+}
+
+.tweetArea[placeholder]:empty:focus::before,
+.tweetArea-modal[placeholder]:empty:focus::before {
+  content: "";
+  content: attr(placeholder);
+  color: gray;
+  opacity: 0.7;
+}
+
+.tweetArea[contenteditable]:focus,
+.tweetArea-modal[contenteditable]:focus {
+  outline: 0px solid transparent;
+}
+
+.tweetArea,
+.tweetArea-modal {
+  min-height: 50px;
+}
+
+.tweetbtn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 50px;
+  width: 200px;
+  border-radius: 40px;
+  background-color: rgb(236, 243, 245);
+  background: linear-gradient(#fcfeff -60%, #d7e6f3 140%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(-60%, #f0dc6a),
+    color-stop(140%, #e48508)
+  );
+  color: rgb(2, 2, 2);
+  font-weight: bolder;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+#inputArea .inputArea-tweetbtn {
+  width: 100px;
+  height: 35px;
+  font-size: medium;
+}
+
+#inputArea .utilityBar,
+#retweetModal .utilityBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#retweetModal .utilityBar {
+  align-items: baseline;
+}
+
+#inputArea .utilityBar input,
+#retweetModal .utilityBar input {
+  display: none;
+}
+
+#inputArea .utilityBar .img-upload i,
+#retweetModal .utilityBar .img-upload i {
+  cursor: pointer;
+}
+
+#inputArea .utilityBar .img-upload label,
+#retweetModal .utilityBar .img-upload label {
+  margin-bottom: 0px;
+}
+
+#inputArea .utilityBar .icons,
+#retweetModal .utilityBar .icons {
+  color: #16a2f2;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweetbtn:hover {
+  background-color: rgb(249, 249, 250);
+}
+
+#inputArea #header {
+  padding-bottom: 15px;
+  border-bottom: 10px solid #e6ecf0;
+  /* height: 5px;
+    background-color: #e6ecf0;
+    width: 100%; */
+}
+
+#image-container {
+  display: flex;
+}
+
+#image-container-tweet {
+  display: flex;
+}
+
+@media (min-width: 1200px) {
+  #my-img {
+    width: 275px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  #my-img {
+    width: 290px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #tweet-img {
+    width: 220px;
+  }
+}
+
+/* extra large devices */
+
+@media screen and (min-width: 1800px) {
+  #tweet-img {
+    width: 250px;
+  }
+}
+
+#tweetTitle {
+  font-weight: bold;
+}
+
+#tweetAt,
+#tweetTime {
+  color: gray;
+  opacity: 0.9;
+}
+
+#content:hover {
+  background-color: #f5f8fa;
+}
+
+#image-container-tweet {
+  border-color: #e6ecf0;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 20px;
+}
+
+.comment-func:hover {
+  color: #f2a516;
+  cursor: pointer;
+}
+
+#indicatorContainer canvas {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.style_iconTweeter {
+  color: #16a2f2;
+  size: 50px;
+}
+
+/*Buttons*/
+
+.dn-twitt-btn {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dn-btn-dlt,
+.dn-btn-lk,
+.dn-btn-ret,
+.dn-btn-cmt {
+  background-color: #ffffff;
+  border-radius: 10px;
+  opacity: 0.7;
+  border: none;
+  height: 30px;
+  width: 50px;
+  transition: 0.5s ease;
+  border: none;
+  outline: none;
+}
+
+.dn-btn-dlt:focus,
+.dn-btn-ret:focus,
+.dn-btn-lk:focus,
+.dn-btn-cmt:focus {
+  border: none;
+  outline: none !important;
+}
+
+.dn-num-tt {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/*Images*/
+
+.dn-img {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.dn-img-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/*Content*/
+
+.dn-name {
+  margin: 0px;
+  padding: 0px;
+}
+
+.dn-twitt-content {
+  width: 100%;
+  padding: 5px;
+}
+
+.dn-content-in {
+  display: block;
+  margin: 5px;
+  padding: 0px;
+  max-height: 500px;
+}
+
+.dn-content {
+  margin: 0px;
+}
+
+.dn-content-in2 {
+  margin: 5px 0px;
+}
+
+.dn-refer {
+  margin: 0px;
+}
+
+.dn-twitt-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 600px;
+  height: 200px;
+  border: 1px solid red;
 }
 
-.App-link {
-  color: #61dafb;
+.dn-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.dn-twitt {
+  width: 200px;
+}
+
+#dn-count-text {
+  display: inline-block;
+}
+
+.dn-twitt {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dn-twitt-area {
+  width: 600px;
+}
+
+.dn-twitt-btn {
+  width: 100%;
+}
+
+.dn-img {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.dn-content-name {
+  margin: 0px;
+  padding: 0px;
+}
+
+.dn-comment-card {
+  width: 90%;
+}
+
+.dn-wrapper {
+  width: 100%;
+}
+
+.dn-iframe {
+  padding: 10px 10px;
+  width: 100%;
+  height: 350px;
+}
+
+/*Card*/
+#card-0 {
+  width: 100%;
+}
+
+.dn-twitt-card {
+  transition: 0.5s ease;
+  padding: 5px;
+}
+
+.dn-retwitt-card {
+  transition: 0.5s ease;
+}
+
+.dn-comment-card {
+  transition: 0.5s ease;
+  margin-left: 30px;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.dn-retwitt-card-inside {
+  margin: 20px 5px;
+  transition: 0.5s ease;
+  border-radius: 20px;
+}
+
+.style_iconTweeter {
+  color: #16a2f2;
+}
+
+.dn-btn-twitt {
+  background-color: #16a2f2;
+  border: none;
+  height: 30px;
+  width: 50px;
+  margin: 5px;
+}
+
+@-moz-keyframes glowing {
+  0% {
+    color: #004a7f;
+    -moz-box-shadow: 0 0 3px #004a7f;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    color: #0094ff;
+    -moz-box-shadow: 0 0 10px #0094ff;
   }
+  100% {
+    color: #004a7f;
+    -moz-box-shadow: 0 0 3px #004a7f;
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    color: #004a7f;
+    -moz-box-shadow: 0 0 3px #004a7f;
+  }
+  50% {
+    color: #0094ff;
+    -moz-box-shadow: 0 0 10px #0094ff;
+  }
+  100% {
+    color: #004a7f;
+    -moz-box-shadow: 0 0 3px #004a7f;
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    color: #23ee10;
+    box-shadow: 0 0 3px #000000;
+  }
+  50% {
+    color: #23ee10;
+    box-shadow: 0 0 3px #000000;
+  }
+  100% {
+    color: #23ee10;
+    box-shadow: 0 0 3px #000000;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    color: #050607;
+  }
+  50% {
+    color: #ffae00;
+  }
+  100% {
+    color: #040505;
+  }
+}
+.style-name {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
 }
